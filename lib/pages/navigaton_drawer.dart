@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 class MyApp extends StatelessWidget {
   static const header = 'GeeksforGeeks';
 
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -45,42 +47,42 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.home_outlined),
+              leading: const Icon(Icons.home_outlined),
               title: const Text(' Home '),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.calendar_month_outlined),
+              leading: const Icon(Icons.calendar_month_outlined),
               title: const Text(' Booking '),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.chat_bubble),
+              leading: const Icon(Icons.chat_bubble),
               title: const Text(' Chat '),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.favorite_border),
+              leading: const Icon(Icons.favorite_border),
               title: const Text(' Favourite '),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.edit),
+              leading: const Icon(Icons.edit),
               title: const Text(' Edit Profile '),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.logout),
+              leading: const Icon(Icons.logout),
               title: const Text('LogOut'),
               onTap: () {
                 Navigator.pop(context);

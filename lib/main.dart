@@ -1,13 +1,19 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:untitledapp/pages/prodduct_detail_page.dart';
 import 'package:untitledapp/pages/splash_page.dart';
+import 'package:untitledapp/utilis/scrollbehaviour.dart';
 
 
+import 'package:device_preview/device_preview.dart';
 
-void main() {
-  runApp(const MyApp());
-  
-}
+void main() => runApp(
+  // DevicePreview(
+  //   enabled: !kReleaseMode,
+  //   builder: (context) =>
+    const MyApp(), // Wrap your app
+ // ),
+);
+
 
 class MyApp extends StatelessWidget {
 
@@ -17,14 +23,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Car Rental',
+      title: 'AUTOHAUS Rental',
       debugShowCheckedModeBanner: false,
+      // ignore: deprecated_member_use
+      // useInheritedMediaQuery: true,
+      // locale: DevicePreview.locale(context),
+      // builder: DevicePreview.appBuilder,
+      scrollBehavior: MyBehavior(),
       theme: ThemeData(
         // textTheme: TextTheme(
         //   bodyText1: TextStyle(color: Colors.white),
         // ),
         useMaterial3: false,
         hintColor: Colors.grey,
+        
         
         focusColor: Colors.brown,
 

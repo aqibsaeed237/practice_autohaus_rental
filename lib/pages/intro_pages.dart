@@ -59,8 +59,9 @@ class IntroPagesState extends State<IntroPages> {
       key: introKey,
       globalBackgroundColor: const Color(0xff0F172A),
       allowImplicitScrolling: true,
-      // autoScrollDuration: 3000,
-      infiniteAutoScroll: false,
+       autoScrollDuration: 6000,
+      infiniteAutoScroll: true,
+      
       pages: [
         PageViewModel(
           title: "Greater Accessibility",

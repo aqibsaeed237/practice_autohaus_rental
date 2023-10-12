@@ -26,11 +26,12 @@ class CustomProductCard extends StatefulWidget {
 }
 
 class _CustomProductCardState extends State<CustomProductCard> {
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 186,
-      width: 150,
+      height: MediaQuery.sizeOf(context).height*1.8,
+      width: MediaQuery.sizeOf(context).width*1.5,
       // margin: EdgeInsets.only(top: 3, left: 10),
       decoration: BoxDecoration(
         border: Border.all(

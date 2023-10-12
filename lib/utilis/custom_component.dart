@@ -26,19 +26,20 @@ class CustomContainer extends StatelessWidget {
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0), // Adjust the padding as needed
-            child: SvgPicture.asset(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
               imageAsset,
-              width: 30, // Adjust the image size as needed
-              height: 30, // Adjust the image size as needed,
+              width: 30,
+              height: 30,
             ),
           ),
           Text(
             text,
             style: const TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w400,// Adjust the font size as needed
-              color: Colors.black, // You can change the text color as needed
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
+              fontFamily: 'PoppinsRegular'
             ),
           ),
         ],

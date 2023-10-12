@@ -17,7 +17,7 @@ class SplashScreenState extends State<SplashPages> {
     Timer(const Duration(seconds: 3),
             ()=>Navigator.pushReplacement(context,
             MaterialPageRoute(builder:
-                (context) =>  IntroductionPage()
+                (context) =>  const IntroductionPage()
             )
         )
     );
@@ -28,7 +28,7 @@ class SplashScreenState extends State<SplashPages> {
         color: const Color(0xff0F172A),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Center(child: Container(child: SvgPicture.asset("assets/images/logo.svg"))),
+          child: Center(child: SvgPicture.asset("assets/images/logo.svg")),
         ),
     );
   }

@@ -33,11 +33,12 @@ class _ProductDetailPageState extends State<ProductDetailPage>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    var size = MediaQuery.of(context).size;
+        return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
-        toolbarHeight: 300,
+        toolbarHeight: 354,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             color: AppColors.primaryColor,
@@ -47,19 +48,21 @@ class _ProductDetailPageState extends State<ProductDetailPage>
             ),
           ),
           child: Column(children: [
-            const SizedBox(
+             const SizedBox(
               height: 50.0,
             ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
+             Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(
-                    Icons.arrow_back_ios,
+                  IconButton(icon: const Icon(  Icons.arrow_back_ios,) ,
                     color: Colors.white,
+                    onPressed: (){
+                      Navigator.pop(context);
+                    },
                   ),
-                  Text(
+                  const Text(
                     'Tesla S Series 2022',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -70,7 +73,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                       height: 0,
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.notifications_none_outlined,
                     color: Colors.white,
                   ),
@@ -166,11 +169,12 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                             decoration: const BoxDecoration(),
                             height: 152,
                             width: 307,
-                            child: SvgPicture.asset(
-                                'assets/images/logo.svg'), // Replace with your center image,
+                            child: Image.asset('assets/images/icar.png'),
+                            // SvgPicture.asset(
+                            //     'assets/images/logo.svg'), // Replace with your center image,
                           )),
                       Positioned(
-                          bottom: 50.0,
+                          bottom: 40.0,
                           left: 50.0,
                           right: 50.0,
                           child: SvgPicture.asset('assets/images/ellipse1.svg'))
