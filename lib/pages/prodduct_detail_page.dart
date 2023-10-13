@@ -191,14 +191,14 @@ class _ProductDetailPageState extends State<ProductDetailPage>
         child: Column(
           children: [
             const SizedBox(
-              height: 10,
+               height: 10,         
             ),
             const CheckCOntainer(),
           const SizedBox(
               height: 10,
             ),
       
-              Container(
+              Container(  
                   width: 342,
                   height: 50,
                   decoration: BoxDecoration(

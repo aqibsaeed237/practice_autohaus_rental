@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                     itemBuilder: (context, index) {
                       return AnimationConfiguration.staggeredGrid(
                         position: index,
-                        duration: const Duration(milliseconds: 375),
+                        duration: const Duration(milliseconds: 395),
                         columnCount: 2,
                         child: ScaleAnimation(
                           child: FadeInAnimation(child: Center(
@@ -241,7 +241,7 @@ class _HomePageState extends State<HomePage> {
                                                     SizedBox(
                                                       width: size.width * 0.02,
                                                     ),
-                                                    Text.rich(
+                                                    const Text.rich(
                                                       TextSpan(
                                                         children: [
                                                           TextSpan(
@@ -279,7 +279,7 @@ class _HomePageState extends State<HomePage> {
                                                         SizedBox(
                                                           width: size.width * 0.01,
                                                         ),
-                                                        Text(
+                                                        const Text(
                                                           '4.0',
                                                           style: TextStyle(
                                                             color:
@@ -379,7 +379,7 @@ class _HomePageState extends State<HomePage> {
                                                     SizedBox(
                                                       width: size.width * 0.072,
                                                     ),
-                                                    Text(
+                                                    const Text(
                                                       'RM',
                                                       style: TextStyle(
                                                         color: Color(0xFFA87B5D),
@@ -392,7 +392,7 @@ class _HomePageState extends State<HomePage> {
                                                     SizedBox(
                                                       width: size.width * 0.01,
                                                     ),
-                                                    Text(
+                                                    const Text(
                                                       '8,500/',
                                                       style: TextStyle(
                                                         color: Color(0xFFA87B5D),
@@ -402,7 +402,7 @@ class _HomePageState extends State<HomePage> {
                                                         height: 0,
                                                       ),
                                                     ),
-                                                    Text(
+                                                    const Text(
                                                       'Month',
                                                       style: TextStyle(
                                                         color: Color(0xFFA87B5D),
@@ -482,8 +482,8 @@ class _HomePageState extends State<HomePage> {
                                           bottomLeft: Radius.circular(10),
                                         ),
                                       ),
-                                      child: Center(
-                                        child: const Text.rich(
+                                      child: const Center(
+                                        child: Text.rich(
                                           TextSpan(
                                             children: [
                                               TextSpan(

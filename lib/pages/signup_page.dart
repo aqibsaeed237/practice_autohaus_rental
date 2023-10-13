@@ -3,7 +3,6 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
-import 'package:untitledapp/model/custom_page_transition_builder.dart';
 import 'package:untitledapp/utilis/component/custom_input_field.dart';
 import 'package:untitledapp/utilis/constants.dart';
 
@@ -17,18 +16,27 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  bool check = false;
+  String countryCode = '';
+
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _fnameController = TextEditingController();
+  bool _isObscure = false;
   final TextEditingController _lnameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-  bool _isObscure = false;
-  bool check = false;
 
   @override
   void dispose() {
     _phoneController.dispose();
     super.dispose();
+  }
+
+  void onCountryChange(PhoneNumber number) {
+    setState(() {
+      countryCode = number.countryISOCode;
+      print("countryCode $countryCode");
+    });
   }
 
   @override
@@ -97,7 +105,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               "First Name",
                               style: TextStyle(
                                   fontSize: 14,
@@ -149,7 +157,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       SizedBox(
                         height: size.height * 0.02,
                       ),
-                      const Text("Mobile number",
+                      const Text(
+                        "Mobile number",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,
@@ -162,52 +171,52 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       IntlPhoneField(
                         style:
-                            TextStyle(color: AppColors.greyWhite, fontSize: 14),
+                            const TextStyle(color: AppColors.greyWhite, fontSize: 14),
                         controller: _phoneController,
-                        initialCountryCode: 'US',
+                        initialCountryCode: 'Pak',
                         disableLengthCheck: true,
                         // disableAutoFillHints: true,
                         // showCountryFlag: false,
                         // showDropdownIcon: false,
                         dropdownTextStyle:
-                            TextStyle(color: AppColors.greyWhite),
-                        dropdownIcon: Icon(
+                            const TextStyle(color: AppColors.greyWhite),
+                        dropdownIcon: const Icon(
                           Icons.arrow_drop_down,
                           color: AppColors.greyWhite,
                         ),
                         onChanged: onCountryChange,
                         decoration: InputDecoration(
-                          errorStyle: TextStyle(color: Colors.transparent),
+                          errorStyle: const TextStyle(color: Colors.transparent),
                           contentPadding:
-                              EdgeInsets.only(top: 15, left: 20, bottom: 15),
+                              const EdgeInsets.only(top: 15, left: 20, bottom: 15),
                           isDense: true,
                           hintText: "Mobile number",
-                          hintStyle: TextStyle(
+                          hintStyle: const TextStyle(
                               color: AppColors.greyWhite, fontSize: 14),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30.0),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: AppColors.greyWhite,
                               width: 1.0,
                             ),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30.0),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               // color: textLabelColor,
                               width: 1.0,
                             ),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30.0),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               //  color: textLabelColor,
                               width: 1.0,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30.0),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               //  color: textLabelColor,
                               width: 1.0,
                             ),
@@ -278,9 +287,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                            const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         child: RichText(
-                          text: TextSpan(
+                          text: const TextSpan(
                               text: "By creating an account, you agree to ",
                               style: TextStyle(
                                 color: Colors.white,
@@ -335,7 +344,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               // Handle checkbox value change
                             },
                           ),
-                          Text(
+                          const Text(
                             "I don’t want to get deals, discount and\n updates.",
                             style: TextStyle(
                               fontFamily: 'PoppinsRegular',
@@ -425,13 +434,5 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       ),
     );
-  }
-
-  String countryCode = '';
-  void onCountryChange(PhoneNumber number) {
-    setState(() {
-      countryCode = number.countryISOCode;
-      print("countryCode ${countryCode}");
-    });
   }
 }

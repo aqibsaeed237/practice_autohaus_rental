@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:untitledapp/pages/signup_page.dart';
 import 'package:untitledapp/utilis/constants.dart';
 
 import '../model/intoduction_model.dart';
@@ -16,12 +17,10 @@ class IntroductionPage extends StatefulWidget {
 
 class _IntroductionPageState extends State<IntroductionPage> {
 
-  // variable data initializarion
-  late AnimationController animationController;
+  //late AnimationController animationController;
   int currentIndex = 0;
   PageController? pageController;
 
-  //List widget from inmtroduction model 
   List<IntroductionModel> screens = <IntroductionModel>[
     IntroductionModel(
       img: 'assets/images/image1.svg',
@@ -62,6 +61,25 @@ class _IntroductionPageState extends State<IntroductionPage> {
     pageController!.dispose();
     super.dispose();
   }
+// // method for going to next page
+//   void nextPage() {
+//     if (currentIndex < screens.length - 1) {
+//       pageController.nextPage(
+//         duration: const Duration(milliseconds: 300),
+//         curve: Curves.easeOut,
+//       );
+//     }
+//   }
+
+//   //skip method
+//   void skipToLogin() {
+//     Navigator.push(
+//       context,
+//       MaterialPageRoute(
+//         builder: (context) => const LoginPage(),
+//       ),
+//     );
+//   }
 
 // building widget
   @override
@@ -76,8 +94,8 @@ class _IntroductionPageState extends State<IntroductionPage> {
             //creating page view builder container// 
             PageView.builder(
               itemCount: screens.length,
-              controller: pageController,
-             // physics: const NeverScrollableScrollPhysics(),
+              controller:  pageController,
+              physics: const AlwaysScrollableScrollPhysics(),
               onPageChanged: (int index) {
                 setState(() {
                   currentIndex = index;
@@ -189,7 +207,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const LoginPage(),
+                              builder: (context) => const SignUpPage(),
                             ),
                           );
                         }
@@ -217,81 +235,5 @@ class _IntroductionPageState extends State<IntroductionPage> {
     );
   }
 }
-
-//  SizedBox(height: MediaQuery.of(context).size.height * 0.20),
-//                 Container(
-//                   height: 10.0,
-//                   color: Colors.transparent,
-//                   child: ListView.builder(
-//                     itemCount: screens.length,
-//                     shrinkWrap: true,
-//                     scrollDirection: Axis.horizontal,
-//                     itemBuilder: (context, index) {
-//                       return Row(
-//                         mainAxisAlignment: MainAxisAlignment.center,
-//                         children: [
-//                           Container(
-//                             margin: const EdgeInsets.symmetric(horizontal: 3.0),
-//                             width: currentIndex == index ? 20 : 8,
-//                             height: 8,
-//                             decoration: BoxDecoration(
-//                               color: currentIndex == index
-//                                   ? Colors.brown
-//                                   : Colors.brown,
-//                               borderRadius: BorderRadius.circular(10.0),
-//                             ),
-//                           ),
-//                         ],
-//                       );
-//                     },
-//                   ),
-//                 ),
-//                 SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-//                 Row(
-//                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                   children: [
-//                     InkWell(
-//                       onTap: () {
-//                         Navigator.push(
-//                           context,
-//                           MaterialPageRoute(
-//                             builder: (context) => const LoginPage(),
-//                           ),
-//                         );
-//                       },
-//                       child: const Text(
-//                         "Skip",
-//                         style: TextStyle(
-//                           fontSize: 15.0,
-//                           color: Colors.white,
-//                         ),
-//                       ),
-//                     ),
-//                     InkWell(
-//                       onTap: () async {
-//                         // print(index);
-//                         if (index == screens.length - 1) {
-//                           Navigator.push(
-//                             context,
-//                             MaterialPageRoute(
-//                               builder: (context) => const LoginPage(),
-//                             ),
-//                           );
-//                         }
-//                         pageController!.nextPage(
-//                           duration: const Duration(milliseconds: 300),
-//                           curve: Curves.bounceIn,
-//                         );
-//                       },
-//                       child: const Text(
-//                         "Next",
-//                         style: TextStyle(
-//                           fontSize: 15.0,
-//                           color: Colors.white,
-//                         ),
-//                       ),
-//                     ),
-//                   ],
-//                 )
-            
+          
          
