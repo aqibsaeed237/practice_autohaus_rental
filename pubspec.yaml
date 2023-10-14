@@ -43,6 +43,7 @@ dependencies:
   intl_phone_field: ^3.2.0
   device_preview: ^1.1.0
   flutter_staggered_animations: ^1.1.1
+  animate_do: ^3.1.2
 
 dev_dependencies:
   flutter_test:

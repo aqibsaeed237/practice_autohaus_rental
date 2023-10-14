@@ -1,9 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
-import 'package:untitledapp/utilis/component/custom_input_field.dart';
+import 'package:untitledapp/pages/privacy_policy_page.dart';
+import 'package:untitledapp/utilis/widgets/custom_input_field.dart';
 import 'package:untitledapp/utilis/constants.dart';
 
 import 'login_page.dart';
@@ -289,39 +291,39 @@ class _SignUpPageState extends State<SignUpPage> {
                         padding:
                             const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         child: RichText(
-                          text: const TextSpan(
+                          text:  TextSpan(
                               text: "By creating an account, you agree to ",
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontFamily: 'PoppinsRegular',
                                 fontSize: 14,
                               ),
                               children: [
-                                TextSpan(
+                                const TextSpan(
                                   text: "AutoHaus Rental's Terms of Use ",
                                   style: TextStyle(
                                     fontFamily: 'PoppinsRegular',
                                     fontSize: 14,
                                     color: AppColors.brown,
                                   ),
-                                  // recognizer: TapGestureRecognizer()..onTap = () => Navigator.push(
-                                  //     context, MaterialPageRoute(builder: (context) => PrivacyPolicy())),
+                                //   recognizer: TapGestureRecognizer()..onTap = () => Navigator.push(
+                                //       context, MaterialPageRoute(builder: (context) => const PrivacyPolicy())),
                                 ),
-                                TextSpan(
+                                const TextSpan(
                                     text: " and ",
                                     style: TextStyle(
                                         fontFamily: 'PoppinsRegular',
                                         color: AppColors.white,
                                         fontSize: 14)),
-                                TextSpan(
+                                 TextSpan(
                                   text: 'Privacy Policy',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontFamily: 'PoppinsRegular',
                                     fontSize: 14,
                                     color: AppColors.brown,
                                   ),
-                                  // recognizer: TapGestureRecognizer()..onTap = () => Navigator.push(
-                                  //     context, MaterialPageRoute(builder: (context) => TermsAndCondition())),
+                                 recognizer: TapGestureRecognizer()..onTap = () => Navigator.push(
+                                      context, MaterialPageRoute(builder: (context) => const PrivacyPolicy())),
                                 ),
                               ]),
                           textAlign: TextAlign.left,

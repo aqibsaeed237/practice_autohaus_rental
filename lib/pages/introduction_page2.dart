@@ -201,7 +201,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
                         ),
                       ),
                     ),
-                    InkWell(
+                    GestureDetector(
                       onTap: () async {
                         if (currentIndex == screens.length - 1) {
                           Navigator.push(

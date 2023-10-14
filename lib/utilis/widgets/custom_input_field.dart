@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitledapp/utilis/constants.dart';
 
 
 
@@ -26,7 +27,7 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       onEditingComplete: () => onEditingComplete(controller.value.text),
       cursorColor: Colors.brown,
-      style: const TextStyle(color: Colors.brown, fontFamily: 'PoppinsRegular'),
+      style: const TextStyle(color: AppColors.greyWhite, fontFamily: 'PoppinsRegular'),
       obscureText: obsecureText,
       
       

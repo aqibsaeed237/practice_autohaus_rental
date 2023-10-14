@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:untitledapp/pages/component/check_radio.dart';
-import 'package:untitledapp/pages/component/description_product_detaill.dart';
+import 'package:untitledapp/pages/home_page.dart';
+import 'package:untitledapp/utilis/component/check_contaainer.dart';
+import 'package:untitledapp/utilis/component/description_product_detaill.dart';
 import 'package:untitledapp/utilis/constants.dart';
+import 'package:animate_do/animate_do.dart';
 
 
 
@@ -15,8 +17,10 @@ class ProductDetailPage extends StatefulWidget {
 
 class _ProductDetailPageState extends State<ProductDetailPage>
     with SingleTickerProviderStateMixin {
-      
+      String dropdownvalue = 'Tesla';
  late TabController _tabController;
+
+ 
 
   @override
   void initState() {
@@ -62,20 +66,24 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                       Navigator.pop(context);
                     },
                   ),
-                  const Text(
-                    'Tesla S Series 2022',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFFF5F5F5),
-                      fontSize: 20,
-                      fontFamily: 'PoppinsRegular',
-                      fontWeight: FontWeight.w700,
-                      height: 0,
+                  FadeIn(
+                    child: const Text(
+                      'Tesla S Series 2022',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color(0xFFF5F5F5),
+                        fontSize: 20,
+                        fontFamily: 'PoppinsRegular',
+                        fontWeight: FontWeight.w700,
+                        height: 0,
+                      ),
                     ),
                   ),
-                  const Icon(
-                    Icons.notifications_none_outlined,
-                    color: Colors.white,
+                  FadeIn(
+                    child: const Icon(
+                      Icons.notifications_none_outlined,
+                      color: Colors.white,
+                    ),
                   ),
                 ],
               ),
@@ -97,7 +105,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                           child: SizedBox(
                             height: 40,
                             width: 40,
-                            child: SvgPicture.asset("assets/images/frame.svg"),
+                            child: FadeIn(child: SvgPicture.asset("assets/images/frame.svg")),
                           )
                           ),
                        const Positioned(
@@ -111,7 +119,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                           color: Colors.white,),
                         ), // Replace with your top right icon image
                       ),
-                      const Positioned(
+                       Positioned(
                         top: 0,
                         left: 0,
                         right: 0,
@@ -121,40 +129,42 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                             width: 107,
                             child: Column(
                               children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.star,
-                                      color: Colors.yellow,
-                                      size: 12,
-                                    ),
-                                    Icon(
-                                      Icons.star,
-                                      color: Colors.yellow,
-                                      size: 12,
-                                    ),
-                                    Icon(
-                                      Icons.star,
-                                      color: Colors.yellow,
-                                      size: 12,
-                                    ),
-                                    Icon(
-                                      Icons.star,
-                                      color: Colors.yellow,
-                                      size: 12,
-                                    ),
-                                    Icon(
-                                      Icons.star,
-                                      color: Colors.white,
-                                      size: 12,
-                                    ),
-                                    Text(
-                                      '4 Stars',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 12, fontFamily: 'PoppinsRegular'),
-                                    ),
-                                  ],
+                                FadeIn(
+                                  child: const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.yellow,
+                                        size: 12,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.yellow,
+                                        size: 12,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.yellow,
+                                        size: 12,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.yellow,
+                                        size: 12,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.white,
+                                        size: 12,
+                                      ),
+                                      Text(
+                                        '4 Stars',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 12, fontFamily: 'PoppinsRegular'),
+                                      ),
+                                    ],
+                                  ),
                                 ), // Replace with your rating stars image
                               ],
                             ),
@@ -165,13 +175,17 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                            top: 30.0, // Adjust as needed
                           left: 80.0,
                           right: 80.0, // Adjust as needed
-                          child: Container(
-                            decoration: const BoxDecoration(),
-                            height: 152,
-                            width: 307,
-                            child: Image.asset('assets/images/icar.png'),
-                            // SvgPicture.asset(
-                            //     'assets/images/logo.svg'), // Replace with your center image,
+                          child: FadeInUp(
+                            child: Container(
+                              decoration: const BoxDecoration(),
+                              height: 152,
+                              width: 307,
+                              child: Hero(
+                                tag: context,
+                                child: Image.asset('assets/images/icar.png')),
+                              // SvgPicture.asset(
+                              //     'assets/images/logo.svg'), // Replace with your center image,
+                            ),
                           )),
                       Positioned(
                           bottom: 40.0,
@@ -193,84 +207,93 @@ class _ProductDetailPageState extends State<ProductDetailPage>
             const SizedBox(
                height: 10,         
             ),
-            const CheckCOntainer(),
+            FadeInLeft(
+              delay: const Duration(seconds: 1),
+            child: const CheckCOntainer()),
           const SizedBox(
               height: 10,
             ),
       
-              Container(  
-                  width: 342,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[350],
-                    borderRadius: BorderRadius.circular(24),
+              FadeIn(
+                delay: const Duration(seconds: 1),
+                child: Container(  
+                    width: 342,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[350],
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                    child: TabBar(
+                      padding: const EdgeInsets.all(5),
+                      labelColor: Colors.black,
+                      indicatorSize: TabBarIndicatorSize.tab,
+                      labelStyle: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontFamily: 'PoppinsRegular',
+                          fontWeight: FontWeight.w500),
+                      indicatorColor: Colors.white10,
+                      dividerColor: Colors.transparent,
+                      indicator: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(24)),
+                      tabs: const [
+                        SizedBox(
+                          width: 120,
+                          height: 38,
+                          child: Tab(
+                            text: 'Description',
+                          ),
+                        ),
+                        SizedBox(
+                          width: 110,
+                          height: 38,
+                          child: Tab(
+                            text: 'Features',
+                          ),
+                        ),
+                        SizedBox(
+                          width: 110,
+                          height: 38,
+                          child: Tab(
+                            text: 'Rating',
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  child: TabBar(
-                    padding: const EdgeInsets.all(5),
-                    labelColor: Colors.black,
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    labelStyle: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 12,
-                        fontFamily: 'PoppinsRegular',
-                        fontWeight: FontWeight.w500),
-                    indicatorColor: Colors.white10,
-                    dividerColor: Colors.transparent,
-                    indicator: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(24)),
-                    tabs: const [
-                      SizedBox(
-                        width: 120,
-                        height: 38,
-                        child: Tab(
-                          text: 'Description',
-                        ),
-                      ),
-                      SizedBox(
-                        width: 110,
-                        height: 38,
-                        child: Tab(
-                          text: 'Features',
-                        ),
-                      ),
-                      SizedBox(
-                        width: 110,
-                        height: 38,
-                        child: Tab(
-                          text: 'Rating',
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                const Expanded(
-                  child: TabBarView(
-                    children: [
-                      DescriptionProductDetail(),
-                      Center(child: Text('Feature ')),
-                      Center(child: Text("Rating")),
-                    ],
+              ),
+                 Expanded(
+                  child: FadeInDownBig(
+                    child: const TabBarView(
+                      children: [
+                        DescriptionProductDetail(),
+                        Center(child: Text('Feature ')),
+                        Center(child: Text("Rating")),
+                      ],
+                    ),
                   ),
                 ),
             
-           Container(
-              width: 283,
-              height: 48,
-              padding: const EdgeInsets.all(10),
-              decoration: ShapeDecoration(
-                color: const Color(0xFFA87B5D),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-              ),
-              child: const Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
+           FadeInDown(
+            delay: const Duration(seconds: 1),
+             child: GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomePage()));
+              },
+               child: Container(
+                  width: 283,
+                  height: 48,
+                  padding: const EdgeInsets.all(10),
+                  decoration: ShapeDecoration(
+                    color: const Color(0xFFA87B5D),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                  ),
+                  child: const Text(
                     'Book Now',
+                   textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xFFF5F5F5),
                       fontSize: 18,
@@ -279,9 +302,9 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                       height: 0,
                     ),
                   ),
-                ],
-              ),
-            )
+                ),
+             ),
+           )
           ],
         ),
       ),

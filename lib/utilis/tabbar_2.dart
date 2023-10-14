@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitledapp/pages/component/description_product_detaill.dart';
+import 'package:untitledapp/utilis/component/description_product_detaill.dart';
 
 class TabBar2 extends StatefulWidget {
   const TabBar2({super.key});

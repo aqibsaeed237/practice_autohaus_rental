@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:untitledapp/model/custom_page_transition_builder.dart';
 import 'package:untitledapp/pages/home_page.dart';
 import 'package:untitledapp/pages/signup_page.dart';
-import 'package:untitledapp/utilis/component/custom_input_field.dart';
+import 'package:untitledapp/utilis/widgets/custom_input_field.dart';
 import 'package:untitledapp/utilis/constants.dart';
 
 class LoginPage extends StatefulWidget {
