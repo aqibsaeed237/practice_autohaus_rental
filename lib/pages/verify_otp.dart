@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/svg.dart';
@@ -5,6 +7,7 @@ import 'package:untitledapp/pages/home_page.dart';
 import 'package:untitledapp/pages/set_password.dart';
 import 'package:untitledapp/utilis/constants.dart';
 import 'package:untitledapp/utilis/widgets/custom_input_field.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class VerifyOTP extends StatefulWidget {
   const VerifyOTP({super.key});
@@ -16,6 +19,15 @@ class VerifyOTP extends StatefulWidget {
 class _VerifyOTPState extends State<VerifyOTP> {
   //initializing variable data
   final TextEditingController _emailController = TextEditingController();
+  TextEditingController textEditingController = TextEditingController();
+  // ..text = "123456";
+
+  // ignore: close_sinks
+  StreamController<ErrorAnimationType>? errorController;
+
+  bool hasError = false;
+  String currentText = "";
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -63,34 +75,44 @@ class _VerifyOTPState extends State<VerifyOTP> {
                   SizedBox(
                     height: size.height * 0.06,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      roundContainer(),
-                      SizedBox(
-                        width: size.width * 0.02,
-                      ),
-                      roundContainer(),
-                      SizedBox(
-                        width: size.width * 0.02,
-                      ),
-                      roundContainer(),
-                      SizedBox(
-                        width: size.width * 0.02,
-                      ),
-                      roundContainer(),
-                      SizedBox(
-                        width: size.width * 0.02,
-                      ),
-                      roundContainer(),
-                      SizedBox(
-                        width: size.width * 0.02,
-                      ),
-                      roundContainer(),
-                    ],
-                  ),
-                  SizedBox(
-                    height: size.height * 0.04,
+                  PinCodeTextField(
+                    appContext: context,
+                    length: 6,
+                    obscureText: false,
+                     pastedTextStyle: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  
+                    pinTheme: PinTheme(
+                      shape: PinCodeFieldShape.circle,
+                      // borderRadius: BorderRadius.circular(20),
+                      fieldHeight: 50,
+                      fieldWidth: 40,
+                      // activeFillColor: Colors.white,
+                      activeColor: Colors.brown,
+                      selectedColor: Colors.white
+                    ),
+                    
+                  
+                
+                    errorAnimationController: errorController,
+                    controller: textEditingController,
+                    onCompleted: (v) {
+                      print("Completed");
+                    },
+                    onChanged: (value) {
+                      print(value);
+                      setState(() {
+                        currentText = value;
+                      });
+                    },
+                    beforeTextPaste: (text) {
+                      print("Allowing to paste $text");
+                      //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                      //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                      return true;
+                    },
                   ),
                   SizedBox(
                     height: MediaQuery.sizeOf(context).height * 0.04,
@@ -129,9 +151,12 @@ class _VerifyOTPState extends State<VerifyOTP> {
                     children: [
                       Row(
                         children: [
-                      
-                          SvgPicture.asset('assets/images/timer.svg',),
-                          SizedBox(width: size.width*0.02,),
+                          SvgPicture.asset(
+                            'assets/images/timer.svg',
+                          ),
+                          SizedBox(
+                            width: size.width * 0.02,
+                          ),
                           const Text(
                             "Expire on 02:00",
                             style: TextStyle(

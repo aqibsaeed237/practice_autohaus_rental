@@ -45,6 +45,7 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   animate_do: ^3.1.2
   smooth_page_indicator: ^1.1.0
+  pin_code_fields: ^8.0.1
 
 dev_dependencies:
   flutter_test:

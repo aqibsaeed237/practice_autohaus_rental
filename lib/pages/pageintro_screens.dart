@@ -124,8 +124,8 @@ class _IntroPageScreenState extends State<IntroPageScreen> {
                 dotWidth: 10.0,
                 dotHeight: 10.0,
                 expansionFactor: 3.8,
-                dotColor: Colors.red,
-                activeDotColor: Colors.red,
+                dotColor: Colors.brown,
+                activeDotColor: Colors.brown,
               ),
               onDotClicked: (newIndex) {
                 setState(() {

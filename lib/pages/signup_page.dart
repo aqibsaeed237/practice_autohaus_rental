@@ -299,16 +299,16 @@ class _SignUpPageState extends State<SignUpPage> {
                                 fontSize: 14,
                               ),
                               children: [
-                                const TextSpan(
+                                 TextSpan(
                                   text: "AutoHaus Rental's Terms of Use ",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontFamily: 'PoppinsRegular',
                                     fontSize: 14,
                                     color: AppColors.brown,
                                   ),
-                                //   recognizer: TapGestureRecognizer()..onTap = () => Navigator.push(
-                                //       context, MaterialPageRoute(builder: (context) => const PrivacyPolicy())),
-                                ),
+                                recognizer: TapGestureRecognizer()..onTap = () => Navigator.push(
+                                      context, MaterialPageRoute(builder: (context) => const PrivacyPolicy())),
+                               ),
                                 const TextSpan(
                                     text: " and ",
                                     style: TextStyle(

@@ -280,7 +280,7 @@ class _FilterPageState extends State<FilterPage> {
                     SizedBox(height: size.height * 0.12),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const HomePage()));

@@ -3,6 +3,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:untitledapp/model/custom_page_transition_builder.dart';
 import 'package:untitledapp/pages/home_page.dart';
+import 'package:untitledapp/pages/reset_password.dart';
 import 'package:untitledapp/pages/signup_page.dart';
 import 'package:untitledapp/utilis/widgets/custom_input_field.dart';
 import 'package:untitledapp/utilis/constants.dart';
@@ -157,7 +158,9 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const ResetPassword()));
+                      },
                       child: const Text(
                         'Forgot your Password?',
                         style: TextStyle(
@@ -175,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomePage()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const HomePage()));
                   },
                   child: Container(
                     width: 283,
