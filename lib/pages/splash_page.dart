@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:untitledapp/pages/pageintro_screens.dart';
 import 'introduction_page2.dart';
 
 
@@ -17,7 +18,7 @@ class SplashScreenState extends State<SplashPages> {
     Timer(const Duration(seconds: 3),
             ()=>Navigator.pushReplacement(context,
             MaterialPageRoute(builder:
-                (context) =>  const IntroductionPage()
+                (context) =>  const IntroPageScreen()
             )
         )
     );

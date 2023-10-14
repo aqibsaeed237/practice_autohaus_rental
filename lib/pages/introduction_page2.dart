@@ -184,7 +184,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    InkWell(
+                    GestureDetector(
                       onTap: () {
                         Navigator.push(
                           context,
